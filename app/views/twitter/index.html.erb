@@ -1,12 +1,16 @@
 
+<% flash.each do |key, value| %>
+    <%= content_tag :div, value, class: "flash #{key}" %>
+<% end %>
 
 <h1> StackCommerce Rails Twitter API Challenge </h1>
-
+<p><%= current_user.email %></p>
+<p><%= link_to('Logout', destroy_user_session_path, method: :delete) %></p>
 
 <%= form_tag("/", method: "get") do %>
     <%= label_tag(:q, "Enter Twitter Handle for last 25 Tweets:") %>
     <%= text_field_tag(:twitter_handle) %>
-    <%= submit_tag("Search") %>
+    <%= submit_tag("Get Tweets") %>
 <% end %>
 
 <% @tweets.to_a.each do |tweet| %>

@@ -5,19 +5,19 @@ class TwitterService
 
 
   def self.get_tweets_for_handle(handle)
-    @tweets = []
 
     client = Twitter::REST::Client.new do |config|
       config.consumer_key = KEY
       config.consumer_secret = SECRET
     end
-
-    client.user_timeline(handle).take(NUMBER_OF_TWEETS).collect do |tweet|
-      @tweets.push(Tweet.new({content: tweet.text, timestamp: tweet.created_at}))
+    tweets=[]
+    tweets = Rails.cache.fetch("#{handle}/tweets", expires_in: 5.minutes) do
+      client.user_timeline(handle).take(NUMBER_OF_TWEETS).each do |tweet|
+        tweets.push(Tweet.new({content: tweet.text, timestamp: tweet.created_at}))
+      end
+      tweets
     end
-
-
-    return @tweets
+    tweets
   end
 
 end

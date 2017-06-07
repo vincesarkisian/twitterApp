@@ -8,7 +8,7 @@ Simple Rails 5.0 App that takes in a twitter handle and returns the last 25 twee
 gem devise
 [https://github.com/plataformatec/devise](https://github.com/plataformatec/devise)
 
-#####Database for Devise 
+##### Database for Devise 
 
 Postgres 
 

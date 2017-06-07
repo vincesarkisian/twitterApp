@@ -2,34 +2,35 @@
 
 Simple Rails 5.0 App that takes in a twitter handle and returns the last 25 tweets. 
 
-Authenticatation Layer
+### Design Choices
+##### Authenticatation Layer
 
 gem devise
 [https://github.com/plataformatec/devise](https://github.com/plataformatec/devise)
 
-Database for Devise 
+#####Database for Devise 
 
 Postgres 
 
 
-Interaction with Twitter
+##### Interaction with Twitter
 
 gem twitter 
 
 [https://github.com/sferik/twitter](https://github.com/sferik/twitter)
 
 
-Deployed to Heroku
+##### Deployed to Heroku
 
 
 
-Caching
+##### Caching
 
 Used Rails built in Low-Level Caching to cache requests of the same twitter handle for 5 mins. 
 
 
 
-Local Environment Setup
+### Local Environment Setup
 
 Install Necesities to Run Rails 5.0 Application
 

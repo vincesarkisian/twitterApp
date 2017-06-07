@@ -1,24 +1,39 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Simple Rails 5.0 App that takes in a twitter handle and returns the last 25 tweets. 
 
-Things you may want to cover:
+Authenticatation Layer
+gem devise
+[follow]: https://github.com/plataformatec/devise
+Database for Devise 
+Postgres 
 
-* Ruby version
 
-* System dependencies
+Interaction with Twitter
+gem twitter 
+[follow]: https://github.com/sferik/twitter
 
-* Configuration
 
-* Database creation
 
-* Database initialization
+Deployed to Heroku
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+Caching
+Used Rails built in Low-Level Caching to cache requests of the same twitter handle for 5 mins. 
 
-* ...
+
+
+Local Environment Setup
+Install Necesities to Run Rails 5.0 Application
+Install Postgres locally 
+Add role for application with command from the postgres user
+	create role twitterapp with createdb login password 'password1';
+
+
+
+Creat Databases 
+	rake db:setup
+
+Start Server
+	rails s 
